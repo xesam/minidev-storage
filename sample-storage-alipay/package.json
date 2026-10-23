@@ -1,0 +1,12 @@
+{
+  "name": "sample-storage-alipay",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "@mini-dev/storage-my": "workspace:*",
+    "@mini-dev/storage": "workspace:*"
+  },
+  "license": "MIT",
+  "description": "@mini-dev/storage-my 支付宝小程序示例"
+}

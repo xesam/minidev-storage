@@ -1,0 +1,23 @@
+{
+  "name": "minidev-storage",
+  "version": "0.0.2",
+  "private": true,
+  "description": "cross-miniprogram storage helper (monorepo: core + per-platform packages)",
+  "license": "MIT",
+  "scripts": {
+    "clean": "pnpm -r --filter './packages/**' run clean",
+    "build": "pnpm -r --filter './packages/**' run build",
+    "typecheck": "pnpm --filter @mini-dev/storage run build && pnpm -r --filter './packages/**' run typecheck",
+    "test": "pnpm -r --filter './packages/**' run build && pnpm -r --filter './packages/**' run test",
+    "verify-samples": "pnpm run build && node scripts/verify-samples.cjs",
+    "publish:all": "pnpm -r --filter './packages/**' publish --no-git-checks",
+    "release": "pnpm run build && pnpm -r --filter './packages/**' publish --no-git-checks"
+  },
+  "devDependencies": {
+    "rimraf": "catalog:"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@10.13.1"
+}

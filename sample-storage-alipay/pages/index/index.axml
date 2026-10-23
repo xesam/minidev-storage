@@ -1,0 +1,137 @@
+<view class="page">
+    <view class="hero">
+        <text class="hero-badge">MINI-DEV TOOLBOX</text>
+        <text class="hero-title">@mini-dev/storage-my</text>
+        <text class="hero-sub">实例工厂 · TTL 信封 · 命名空间 · 统一 API</text>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">01</text>
+            <view class="card-head-text">
+                <text class="card-title">实例工厂与物理信封</text>
+                <text class="card-desc">createStorage 一次性配置；物理层写入信封对象（序列化归原生）</text>
+            </view>
+        </view>
+        <view class="card-actions">
+            <button class="btn" onTap="onTapFactory" hover-class="btn-hover">运行演示</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">02</text>
+            <view class="card-head-text">
+                <text class="card-title">命名空间隔离</text>
+                <text class="card-desc">三个实例写同一个 key，前缀守望、互不覆盖</text>
+            </view>
+        </view>
+        <view class="card-actions">
+            <button class="btn" onTap="onTapNamespace" hover-class="btn-hover">运行演示</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">03</text>
+            <view class="card-head-text">
+                <text class="card-title">异步家族</text>
+                <text class="card-desc">set / get / has / remove：裸名即异步，Promise 直返统一契约</text>
+            </view>
+        </view>
+        <view class="card-actions card-actions-row">
+            <button class="btn btn-s" onTap="onTapSetGet" hover-class="btn-hover">写读</button>
+            <button class="btn btn-s" onTap="onTapKeyMissing" hover-class="btn-hover">键缺失合成</button>
+            <button class="btn btn-s" onTap="onTapRemoveAsync" hover-class="btn-hover">异步删除</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">04</text>
+            <view class="card-head-text">
+                <text class="card-title">同步家族</text>
+                <text class="card-desc">setSync / getSync / hasSync / removeSync：直返形态，与异步同管线</text>
+            </view>
+        </view>
+        <view class="card-actions card-actions-row">
+            <button class="btn btn-s" onTap="onTapSync" hover-class="btn-hover">同步写读</button>
+            <button class="btn btn-s" onTap="onTapRemoveSync" hover-class="btn-hover">同步删除</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">05</text>
+            <view class="card-head-text">
+                <text class="card-title">TTL 过期驱逐</text>
+                <text class="card-desc">SetOptions.ttl 覆盖默认 / ttl: 0 永存；过期统一按键缺失合成</text>
+            </view>
+        </view>
+        <view class="card-actions">
+            <button class="btn" onTap="onTapTtl" hover-class="btn-hover">运行演示（约 0.2s）</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">06</text>
+            <view class="card-head-text">
+                <text class="card-title">实例域 clear</text>
+                <text class="card-desc">只清本命名空间，别的模块数据不受影响</text>
+            </view>
+        </view>
+        <view class="card-actions card-actions-row">
+            <button class="btn btn-s" onTap="onTapClearScope" hover-class="btn-hover">clear</button>
+            <button class="btn btn-s" onTap="onTapClearSync" hover-class="btn-hover">clearSync</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">07</text>
+            <view class="card-head-text">
+                <text class="card-title">info 统计</text>
+                <text class="card-desc">info / infoSync：keys 与容量（keys 去前缀，大小为全域值）</text>
+            </view>
+        </view>
+        <view class="card-actions">
+            <button class="btn" onTap="onTapInfo" hover-class="btn-hover">运行演示</button>
+        </view>
+    </view>
+
+    <view class="card">
+        <view class="card-head">
+            <text class="card-no">08</text>
+            <view class="card-head-text">
+                <text class="card-title">库外互操作</text>
+                <text class="card-desc">原生写 → 库读原样；库写 → 原生读见信封</text>
+            </view>
+        </view>
+        <view class="card-actions">
+            <button class="btn" onTap="onTapInterop" hover-class="btn-hover">运行演示</button>
+        </view>
+    </view>
+
+    <view class="console">
+        <view class="console-head">
+            <view class="console-dot-group">
+                <view class="console-dot console-dot-r"></view>
+                <view class="console-dot console-dot-y"></view>
+                <view class="console-dot console-dot-g"></view>
+            </view>
+            <text class="console-title">OUTPUT — pages/index/index.js</text>
+            <button class="mini-btn" onTap="onTapClearLog" hover-class="mini-btn-hover">清空</button>
+        </view>
+        <scroll-view scroll-y="true" class="console-body" scroll-top="{{scrollTop}}">
+            <text class="console-text">{{logText}}</text>
+            <view class="console-empty" a:if="{{!logText}}">
+                <text class="console-empty-text">输出为空——点击上方任意演示按钮</text>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class="foot">
+        <text class="foot-text">import 不抛（懒绑）· 配置创建时一次给定 · 统一 API：键缺失 / 文案 / 返回值无端差异</text>
+    </view>
+</view>

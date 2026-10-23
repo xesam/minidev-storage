@@ -1,0 +1,12 @@
+{
+  "name": "sample-storage-wechat",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "@mini-dev/storage-wx": "workspace:*",
+    "@mini-dev/storage": "workspace:*"
+  },
+  "license": "MIT",
+  "description": "@mini-dev/storage-wx 微信小程序示例"
+}

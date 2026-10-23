@@ -1,0 +1,11 @@
+node_modules
+dist
+miniprogram_dist
+miniprogram_npm
+coverage
+.idea
+.vscode
+*.iml
+.DS_Store
+CLAUDE.md
+*.private.config.json

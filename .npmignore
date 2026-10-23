@@ -1,0 +1,12 @@
+src
+test
+sample-storage-wechat
+sample-storage-alipay
+sample-storage-douyin
+coverage
+tsconfig.json
+jest.config.js
+.gitignore
+.npmignore
+CLAUDE.md
+package-lock.json

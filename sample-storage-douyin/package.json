@@ -1,0 +1,13 @@
+{
+  "name": "sample-storage-douyin",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "@mini-dev/storage-tt": "workspace:*",
+    "@mini-dev/storage": "workspace:*"
+  },
+  "license": "MIT",
+  "description": "@mini-dev/storage-tt 抖音小程序示例",
+  "type": "commonjs"
+}

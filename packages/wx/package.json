@@ -1,0 +1,71 @@
+{
+  "name": "@mini-dev/storage-wx",
+  "version": "0.0.2",
+  "description": "Unified storage for WeChat mini programs: namespace, TTL, key-missing defaults, typed keys — wx platform package of @mini-dev/storage",
+  "license": "MIT",
+  "author": "xesam",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xesam/minidev-storage.git",
+    "directory": "packages/wx"
+  },
+  "bugs": {
+    "url": "https://github.com/xesam/minidev-storage"
+  },
+  "homepage": "https://github.com/xesam/minidev-storage#readme",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "miniprogram": "dist/cjs/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "@mini-dev/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/jest": "catalog:",
+    "@types/node": "catalog:",
+    "jest": "catalog:",
+    "rimraf": "catalog:",
+    "ts-jest": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  },
+  "keywords": [
+    "miniapp",
+    "miniprogram",
+    "storage",
+    "wechat",
+    "weixin",
+    "weapp",
+    "wx",
+    "ttl",
+    "key-value",
+    "local-storage",
+    "typescript"
+  ]
+}
